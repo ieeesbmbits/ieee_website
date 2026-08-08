@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events | IEEE Student Branch MBITS</title>
+  <meta name="description"
+    content="Explore workshops, hackathons, seminars, and technical competitions hosted by IEEE Student Branch MBITS." />
+
+  <!-- Google Fonts Import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./src/style.css" />
+  <link rel="stylesheet" href="./events.css" />
+</head>
+
+<body>
+
+  <!-- Navigation Bar (Fixed & Transparent) -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Brand Logo: logo.png -->
+      <a href="./index.html" class="brand-logo" aria-label="IEEE MBITS Home">
+        <img src="./logo.png" alt="IEEE MBITS Logo" class="brand-logo-img" />
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="./index.html#hero" class="nav-link">Home</a>
+        <a href="./execom.html" class="nav-link">Execom</a>
+        <a href="./gallery.html" class="nav-link">Gallery</a>
+        <a href="./event.html" class="nav-link active">Events</a>
+        <a href="./index.html#support-request" class="btn btn-donate mobile-nav-join">Join Now</a>
+      </nav>
+
+      <!-- Right Action Buttons -->
+      <div class="nav-actions">
+        <a href="./index.html#support-request" class="btn btn-donate desktop-join">Join Now</a>
+        <button class="nav-hamburger" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header Section -->
+  <section class="events-page-hero">
+    <!-- Background Eclipse Graphic -->
+    <div class="hero-eclipse" id="hero-eclipse" aria-hidden="true">
+      <svg viewBox="0 0 598 1219" fill="none" xmlns="http://www.w3.org/2000/svg" class="eclipse-svg">
+        <ellipse id="ellipse-gold" cx="760.5" cy="609.5" rx="760.5" ry="609.5" fill="#E9D494" />
+        <ellipse id="ellipse-inner" cx="676" cy="491" rx="510" ry="430" fill="#090909" />
+      </svg>
+    </div>
+
+    <div class="events-hero-container">
+      <h1 class="events-hero-title anton-regular">
+        <span class="title-white">OUR</span> <span class="title-gold">EVENTS</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Full-Width Alternating Rows Events Section (Descending Order of Date) -->
+  <section class="events-section">
+    <div class="events-container" id="eventsContainer">
+      <!-- Events populated dynamically from events.js -->
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightboxDirect()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="lightbox-img-wrap">
+        <img src="" id="lightboxImg" alt="Event Poster Full View" class="lightbox-img" />
+      </div>
+      <div class="lightbox-details">
+        <div class="event-meta" style="margin-bottom: 8px;">
+          <span class="event-date-badge" id="lightboxDate"><i class="fa-regular fa-calendar-days"></i></span>
+        </div>
+        <h3 class="lightbox-title anton-regular" id="lightboxTitle"></h3>
+        <p class="lightbox-desc" id="lightboxDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Lightbox Logic
+    window.openLightbox = function(imgSrc, title, date, desc) {
+      document.getElementById('lightboxImg').src = imgSrc;
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxDate').innerHTML = `<i class="fa-regular fa-calendar-days"></i> ${date}`;
+      document.getElementById('lightboxDesc').textContent = desc;
+      document.getElementById('lightboxModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeLightboxDirect = function() {
+      document.getElementById('lightboxModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    window.closeLightbox = function(e) {
+      if (e.target.id === 'lightboxModal') {
+        window.closeLightboxDirect();
+      }
+    };
+  </script>
+  <!-- Main JS Engine & Lenis Smooth Scroll -->
+  <script type="module" src="./src/main.js"></script>
+  <script type="module" src="./events.js"></script>
+</body>
+
+</html>

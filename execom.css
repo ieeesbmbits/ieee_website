@@ -1,0 +1,817 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+:root {
+  --bg-dark: #090909;
+  --bg-card: #121212;
+  --bg-card-hover: #181818;
+  --text-white: #ffffff;
+  --text-gold: #e9d494;
+  --text-muted: #adadad;
+  --accent-red: #ff5040;
+  --accent-red-hover: #e03e28;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  --font-display: "Anton", sans-serif;
+  --font-body: 'Inter', 'Nunito', 'Roboto', system-ui, -apple-system, sans-serif;
+
+  /* React Bits ProfileCard CSS Variables */
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --pointer-from-center: 0;
+  --pointer-from-top: 0.5;
+  --pointer-from-left: 0.5;
+  --card-opacity: 0;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --background-x: 50%;
+  --background-y: 50%;
+  --grain: none;
+  --icon: none;
+  --behind-gradient: none;
+  --behind-glow-color: rgba(233, 212, 148, 0.7);
+  --behind-glow-size: 40%;
+  --inner-gradient: linear-gradient(145deg, #141414 0%, #201a12 50%, #e9d49425 100%);
+  --sunpillar-1: hsl(2, 100%, 73%);
+  --sunpillar-2: hsl(53, 100%, 69%);
+  --sunpillar-3: hsl(93, 100%, 69%);
+  --sunpillar-4: hsl(176, 100%, 76%);
+  --sunpillar-5: hsl(228, 100%, 74%);
+  --sunpillar-6: hsl(283, 100%, 73%);
+  --sunpillar-clr-1: var(--sunpillar-1);
+  --sunpillar-clr-2: var(--sunpillar-2);
+  --sunpillar-clr-3: var(--sunpillar-3);
+  --sunpillar-clr-4: var(--sunpillar-4);
+  --sunpillar-clr-5: var(--sunpillar-5);
+  --sunpillar-clr-6: var(--sunpillar-6);
+  --card-radius: 28px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip !important;
+  background-color: var(--bg-dark);
+  position: relative;
+  padding: 90px 1.5rem 4rem !important;
+}
+
+/* NAVBAR BACKGROUND OVERRIDE */
+.navbar {
+  height: 90px !important;
+  background: #090909 !important;
+}
+
+h1,
+h2,
+h3,
+.anton-regular {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.02em;
+}
+
+/* BACKGROUND HERO ECLIPSE ARC (from index.html) */
+.hero-eclipse {
+  z-index: 1;
+  width: 38%;
+  min-width: 440px;
+  height: 180vh;
+  position: absolute;
+  top: -120px;
+  right: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.95;
+}
+
+.hero-eclipse svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Container */
+.container-large {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* CHAPTER TABS NAVIGATION */
+.chapter-tabs-wrapper {
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+  width: 100%;
+  position: sticky;
+  top: 90px;
+  z-index: 50;
+  background: rgba(9, 9, 9, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chapter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-gold) transparent;
+}
+
+.chapter-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.chapter-tabs::-webkit-scrollbar-thumb {
+  background: var(--text-gold);
+  border-radius: 4px;
+}
+
+.chapter-tab {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  outline: none;
+}
+
+.chapter-tab:hover {
+  background: rgba(233, 212, 148, 0.12);
+  border-color: rgba(233, 212, 148, 0.3);
+  color: var(--text-white);
+  transform: translateY(-2px);
+}
+
+.chapter-tab.active {
+  background: var(--text-gold);
+  border-color: var(--text-gold);
+  color: var(--bg-dark);
+  box-shadow: 0 4px 16px rgba(233, 212, 148, 0.3);
+}
+
+/* SECTION GRID */
+.execom-grid-section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.execom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+/* TILE DESIGN */
+.member-card-tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.member-card-tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--text-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.member-card-tile:hover {
+  transform: translateY(-6px);
+  border-color: rgba(233, 212, 148, 0.4);
+  background: var(--bg-card-hover);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(233, 212, 148, 0.1);
+}
+
+.member-card-tile:hover::before {
+  opacity: 1;
+}
+
+.tile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tile-num {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.tile-role,
+.tile-role-badge {
+  display: inline-flex;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--bg-dark);
+  background: var(--text-gold);
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+/* Photo Styling */
+.tile-photo-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+
+.tile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.member-card-tile:hover .tile-photo {
+  transform: scale(1.06);
+}
+
+.tile-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(9, 9, 9, 0.7) 100%);
+}
+
+.tile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tile-name {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--text-white);
+}
+
+.tile-ieee-id {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+
+/* MODAL OVERLAY */
+.member-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(9, 9, 9, 0.88);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  padding: 20px;
+}
+
+.member-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.member-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-white);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 220;
+}
+
+.member-close:hover {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+  color: var(--text-white);
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* =========================================================
+   REACT BITS PROFILE CARD COMPONENT STYLES
+   ========================================================= */
+
+.pc-card-wrapper {
+  perspective: 600px;
+  transform: translate3d(0, 0, 0.1px);
+  position: relative;
+  touch-action: none;
+  z-index: 205;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.pc-behind {
+  position: absolute;
+  inset: -15px;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--pointer-x) var(--pointer-y),
+      var(--behind-glow-color) 0%,
+      transparent var(--behind-glow-size));
+  filter: blur(45px) saturate(1.2);
+  opacity: calc(0.9 * var(--card-opacity));
+  transition: opacity 200ms ease;
+}
+
+.pc-card-wrapper:hover,
+.pc-card-wrapper.active {
+  --card-opacity: 1;
+}
+
+.pc-card-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.pc-card-shell.entering .pc-card {
+  transition: transform 180ms ease-out;
+}
+
+.pc-card {
+  width: min(390px, 90vw);
+  height: min(540px, 82vh);
+  display: grid;
+  aspect-ratio: 0.718;
+  border-radius: var(--card-radius);
+  position: relative;
+  background-blend-mode: color-dodge, normal, normal, normal;
+  animation: glow-bg 12s linear infinite;
+  box-shadow: rgba(0, 0, 0, 0.85) calc((var(--pointer-from-left) * 10px) - 3px) calc((var(--pointer-from-top) * 20px) - 6px) 24px -5px;
+  transition: transform 1s ease;
+  transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  background: rgba(9, 9, 9, 0.95);
+  backface-visibility: hidden;
+  overflow: hidden;
+  border: 1px solid rgba(233, 212, 148, 0.25);
+}
+
+.pc-card:hover,
+.pc-card.active,
+.pc-card-shell.active .pc-card {
+  transition: none;
+  transform: translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+}
+
+.pc-card * {
+  display: grid;
+  grid-area: 1/-1;
+  border-radius: var(--card-radius);
+  pointer-events: none;
+}
+
+.pc-inside {
+  inset: 0;
+  position: absolute;
+  background-image: var(--inner-gradient);
+  background-color: rgba(9, 9, 9, 0.95);
+  transform: none;
+}
+
+.pc-shine {
+  mask-image: var(--icon);
+  mask-mode: luminance;
+  mask-repeat: repeat;
+  mask-size: 150%;
+  mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
+  transition: opacity 0.4s ease;
+  filter: brightness(0.9) contrast(1.1) opacity(0.2);
+  animation: holo-bg 18s linear infinite;
+  animation-play-state: running;
+  mix-blend-mode: overlay;
+}
+
+.pc-shine,
+.pc-shine::after {
+  --space: 5%;
+  --angle: -45deg;
+  transform: translate3d(0, 0, 1px);
+  overflow: hidden;
+  z-index: 3;
+  background: transparent;
+  background-size: cover;
+  background-position: center;
+  background-image:
+    repeating-linear-gradient(0deg,
+      var(--sunpillar-clr-1) calc(var(--space) * 1),
+      var(--sunpillar-clr-2) calc(var(--space) * 2),
+      var(--sunpillar-clr-3) calc(var(--space) * 3),
+      var(--sunpillar-clr-4) calc(var(--space) * 4),
+      var(--sunpillar-clr-5) calc(var(--space) * 5),
+      var(--sunpillar-clr-6) calc(var(--space) * 6),
+      var(--sunpillar-clr-1) calc(var(--space) * 7)),
+    repeating-linear-gradient(var(--angle),
+      #0e152e 0%,
+      hsl(180, 10%, 60%) 3.8%,
+      hsl(180, 29%, 66%) 4.5%,
+      hsl(180, 10%, 60%) 5.2%,
+      #0e152e 10%,
+      #0e152e 12%),
+    radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y),
+      hsla(0, 0%, 0%, 0.1) 12%,
+      hsla(0, 0%, 0%, 0.15) 20%,
+      hsla(0, 0%, 0%, 0.25) 120%);
+  background-position:
+    0 var(--background-y),
+    var(--background-x) var(--background-y),
+    center;
+  background-blend-mode: soft-light, overlay;
+  background-size:
+    500% 500%,
+    300% 300%,
+    200% 200%;
+  background-repeat: repeat;
+}
+
+.pc-shine::before,
+.pc-shine::after {
+  content: '';
+  background-position: center;
+  background-size: cover;
+  grid-area: 1/1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pc-card:hover .pc-shine,
+.pc-card.active .pc-shine,
+.pc-card-shell.active .pc-shine {
+  filter: brightness(1) contrast(1.1) opacity(0.3);
+  animation-play-state: paused;
+}
+
+.pc-card:hover .pc-shine::before,
+.pc-card.active .pc-shine::before,
+.pc-card:hover .pc-shine::after,
+.pc-card.active .pc-shine::after,
+.pc-card-shell.active .pc-shine::before,
+.pc-card-shell.active .pc-shine::after {
+  opacity: 0.25;
+}
+
+.pc-shine::before {
+  background-image:
+    linear-gradient(45deg,
+      rgba(233, 212, 148, 0.3),
+      rgba(113, 196, 255, 0.3),
+      rgba(233, 212, 148, 0.3)),
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.2) 0%, transparent 70%),
+    var(--grain);
+  background-size:
+    250% 250%,
+    100% 100%,
+    220px 220px;
+  background-position:
+    var(--pointer-x) var(--pointer-y),
+    center,
+    calc(var(--pointer-x) * 0.01) calc(var(--pointer-y) * 0.01);
+  background-blend-mode: overlay;
+  filter: brightness(1) contrast(1.1) saturate(0.5);
+  mix-blend-mode: overlay;
+}
+
+.pc-shine::after {
+  background-position:
+    0 var(--background-y),
+    calc(var(--background-x) * 0.4) calc(var(--background-y) * 0.5),
+    center;
+  background-size:
+    200% 300%,
+    700% 700%,
+    100% 100%;
+  mix-blend-mode: soft-light;
+  filter: brightness(0.9) contrast(1.2);
+}
+
+.pc-glare {
+  transform: translate3d(0, 0, 1.1px);
+  overflow: hidden;
+  background-image: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y),
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0.4) 80%);
+  mix-blend-mode: overlay;
+  filter: brightness(0.9) contrast(1.1);
+  z-index: 4;
+  opacity: 0.35;
+}
+
+.pc-avatar-content {
+  mix-blend-mode: normal;
+  overflow: hidden;
+  transform: translateZ(2px);
+  backface-visibility: hidden;
+  z-index: 10;
+}
+
+.pc-avatar-content .avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform-origin: 50% 100%;
+  transform: translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 8px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01));
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 120ms ease-out;
+}
+
+.pc-user-info {
+  position: absolute;
+  --ui-inset: 14px;
+  --ui-radius-bias: 4px;
+  bottom: var(--ui-inset);
+  left: var(--ui-inset);
+  right: var(--ui-inset);
+  z-index: 50 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(12, 12, 12, 0.78);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: calc(max(0px, var(--card-radius) - var(--ui-inset) + var(--ui-radius-bias)));
+  padding: 10px 14px;
+  pointer-events: auto !important;
+}
+
+.pc-user-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.pc-mini-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(233, 212, 148, 0.4);
+  flex-shrink: 0;
+  background: #000;
+}
+
+.pc-mini-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.pc-user-text {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pc-handle {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-gold);
+  line-height: 1;
+}
+
+.pc-status {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1;
+}
+
+.pc-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto !important;
+  z-index: 55 !important;
+  position: relative;
+}
+
+.pc-contact-btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 7px 11px;
+  font-size: 11px;
+  font-weight: 400;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 60 !important;
+}
+
+.pc-contact-btn * {
+  pointer-events: none;
+}
+
+.pc-contact-btn:hover {
+  background: var(--text-gold);
+  color: #000000;
+  border-color: var(--text-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 212, 148, 0.3);
+}
+
+.pc-content:not(.pc-avatar-content) {
+  max-height: 100%;
+  overflow: visible;
+  text-align: center;
+  position: relative;
+  transform: translate3d(calc(var(--pointer-from-left) * -6px + 3px),
+      calc(var(--pointer-from-top) * -6px + 3px),
+      0.1px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.pc-details {
+  width: 100%;
+  position: absolute;
+  top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.pc-details h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  margin: 0;
+  padding: 4px 6px;
+  text-transform: uppercase;
+  background-image: linear-gradient(to bottom, #ffffff 30%, #e9d494 100%);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  line-height: 1.15;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  word-break: break-word;
+  text-align: center;
+}
+
+.pc-details p {
+  font-weight: 400;
+  position: relative;
+  top: 4px;
+  white-space: nowrap;
+  font-size: 11px;
+  margin: 4px auto 0;
+  padding: 3px 12px;
+  border-radius: 20px;
+  background: rgba(233, 212, 148, 0.2);
+  border: 1px solid rgba(233, 212, 148, 0.4);
+  color: var(--text-gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes glow-bg {
+  0% {
+    --bgrotate: 0deg;
+  }
+
+  100% {
+    --bgrotate: 360deg;
+  }
+}
+
+@keyframes holo-bg {
+  0% {
+    background-position:
+      0 var(--background-y),
+      0 0,
+      center;
+  }
+
+  100% {
+    background-position:
+      0 var(--background-y),
+      90% 90%,
+      center;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 1rem 3rem;
+  }
+
+  .execom-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pc-card {
+    width: min(340px, 92vw);
+    height: min(480px, 78vh);
+  }
+
+  .pc-details h3 {
+    font-size: 1.6rem;
+  }
+
+  .pc-user-info {
+    --ui-inset: 10px;
+    padding: 8px 10px;
+  }
+
+  .pc-mini-avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .pc-handle {
+    font-size: 11px;
+  }
+
+  .pc-status {
+    font-size: 9px;
+  }
+}
