@@ -9852,6 +9852,7 @@ label {
     min-width: unset;
     width: 70%;
     right: 0;
+    opacity: 0.3 !important;
   }
 
   .challenge-heading {
