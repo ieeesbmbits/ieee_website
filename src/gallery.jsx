@@ -74,20 +74,20 @@ function GalleryApp() {
       <div className="gallery-viewport">
         <DomeGallery
           images={GALLERY_IMAGES}
-          fit={0.55}
-          fitBasis="auto"
-          minRadius={550}
-          maxRadius={1400}
-          padFactor={0.2}
+          fit={0.92}
+          fitBasis="max"
+          minRadius={520}
+          maxRadius={1600}
+          padFactor={0.12}
           overlayBlurColor="#090909"
-          maxVerticalRotationDeg={10}
-          dragSensitivity={18}
+          maxVerticalRotationDeg={12}
+          dragSensitivity={20}
           enlargeTransitionMs={350}
-          segments={22}
+          segments={24}
           dragDampening={1.8}
-          openedImageWidth="min(420px, 85vw)"
-          openedImageHeight="min(420px, 85vw)"
-          imageBorderRadius="20px"
+          openedImageWidth="min(480px, 90vw)"
+          openedImageHeight="min(480px, 82vh)"
+          imageBorderRadius="16px"
           openedImageBorderRadius="24px"
         />
       </div>

@@ -195,9 +195,9 @@ export default function DomeGallery({
           basis = aspect >= 1.3 ? w : minDim;
       }
       let radius = basis * fit;
-      const heightGuard = h * 1.35;
+      const heightGuard = h * 1.5;
       radius = Math.min(radius, heightGuard);
-      const effectiveMinRadius = w < 600 ? Math.min(minRadius, Math.max(260, Math.round(w * 0.75))) : minRadius;
+      const effectiveMinRadius = w < 600 ? Math.max(380, Math.round(w * 1.1)) : minRadius;
       radius = clamp(radius, effectiveMinRadius, maxRadius);
       lockedRadiusRef.current = Math.round(radius);
 
