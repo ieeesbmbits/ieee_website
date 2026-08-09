@@ -1,4 +1,4 @@
-// IEEE GDVIBES Main Application & Animation Script
+// IEEE Student Branch MBITS Main Application & Animation Script
 import Lenis from 'lenis';
 
 let lenisInstance = null;
