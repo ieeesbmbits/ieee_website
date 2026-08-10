@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import DomeGallery from './DomeGallery';
 import { initMobileNavbar } from './main.js';
@@ -35,32 +35,32 @@ const GALLERY_IMAGES = [
 ];
 
 function GalleryApp() {
+  const [viewMode, setViewMode] = useState('globe'); // 'globe' or 'normal'
+  const [activeImage, setActiveImage] = useState(null);
+
   useEffect(() => {
     initMobileNavbar();
   }, []);
 
   return (
-    <div className="gallery-page-container">
-      {/* Navigation Bar (Fixed & Transparent - Same as index.html) */}
+    <div className={`gallery-page-container ${viewMode === 'normal' ? 'normal-mode' : 'globe-mode'}`}>
+      {/* Navigation Bar */}
       <header className="navbar" id="navbar">
         <div className="nav-container">
-          {/* Brand Logo: logo.png */}
           <a href="./index.html" className="brand-logo" aria-label="IEEE MBITS Home">
             <img src="./logo.png" alt="IEEE MBITS Logo" className="brand-logo-img" />
           </a>
 
-          {/* Left-aligned Nav Links next to Logo */}
           <nav className="nav-menu" id="navMenu">
             <a href="./index.html#hero" className="nav-link">Home</a>
             <a href="./execom.html" className="nav-link">Execom</a>
             <a href="./gallery.html" className="nav-link active">Gallery</a>
             <a href="./event.html" className="nav-link">Events</a>
-            <a href="./index.html#support-request" className="btn btn-donate mobile-nav-join">Join Now</a>
+            <a href="./join.html" className="btn btn-donate mobile-nav-join">Join Now</a>
           </nav>
 
-          {/* Right Action Buttons */}
           <div className="nav-actions">
-            <a href="./index.html#support-request" className="btn btn-donate desktop-join">Join Now</a>
+            <a href="./join.html" className="btn btn-donate desktop-join">Join Now</a>
             <button className="nav-hamburger" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
               <span className="hamburger-bar"></span>
               <span className="hamburger-bar"></span>
@@ -70,27 +70,91 @@ function GalleryApp() {
         </div>
       </header>
 
-      {/* Interactive 3D Dome Gallery Canvas */}
-      <div className="gallery-viewport">
-        <DomeGallery
-          images={GALLERY_IMAGES}
-          fit={0.92}
-          fitBasis="max"
-          minRadius={520}
-          maxRadius={1600}
-          padFactor={0.12}
-          overlayBlurColor="#090909"
-          maxVerticalRotationDeg={12}
-          dragSensitivity={20}
-          enlargeTransitionMs={350}
-          segments={24}
-          dragDampening={1.8}
-          openedImageWidth="min(480px, 90vw)"
-          openedImageHeight="min(480px, 82vh)"
-          imageBorderRadius="16px"
-          openedImageBorderRadius="24px"
-        />
+      {/* Floating Toggle Controls Bar: Normal View vs Globe View */}
+      <div className="gallery-control-bar">
+        <div className="gallery-control-inner">
+          <div className="gallery-view-mode-toggle" role="group" aria-label="Gallery View Mode">
+            <button
+              type="button"
+              className={`view-toggle-btn ${viewMode === 'normal' ? 'active' : ''}`}
+              onClick={() => setViewMode('normal')}
+              aria-label="Switch to Normal View"
+            >
+              <i className="fa-solid fa-border-all"></i>
+              <span>Normal View</span>
+            </button>
+            <button
+              type="button"
+              className={`view-toggle-btn ${viewMode === 'globe' ? 'active' : ''}`}
+              onClick={() => setViewMode('globe')}
+              aria-label="Switch to Globe View"
+            >
+              <i className="fa-solid fa-globe"></i>
+              <span>Globe View</span>
+            </button>
+          </div>
+        </div>
       </div>
+
+      {/* Main View Content */}
+      {viewMode === 'globe' ? (
+        <div className="gallery-viewport">
+          <DomeGallery
+            images={GALLERY_IMAGES}
+            fit={0.92}
+            fitBasis="max"
+            minRadius={520}
+            maxRadius={1600}
+            padFactor={0.12}
+            overlayBlurColor="#090909"
+            maxVerticalRotationDeg={12}
+            dragSensitivity={20}
+            enlargeTransitionMs={350}
+            segments={24}
+            dragDampening={1.8}
+            openedImageWidth="min(480px, 90vw)"
+            openedImageHeight="min(480px, 82vh)"
+            imageBorderRadius="16px"
+            openedImageBorderRadius="24px"
+          />
+        </div>
+      ) : (
+        <div className="normal-gallery-container">
+          <div className="normal-gallery-grid">
+            {GALLERY_IMAGES.map((img, idx) => (
+              <div
+                key={idx}
+                className="normal-gallery-card"
+                onClick={() => setActiveImage(img)}
+              >
+                <img src={img.src} alt={img.alt} loading="lazy" className="normal-gallery-img" />
+                <div className="normal-gallery-overlay">
+                  <i className="fa-solid fa-expand"></i>
+                  <span>View Photo</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Modal for Normal View */}
+      {activeImage && (
+        <div className="normal-lightbox-modal" onClick={() => setActiveImage(null)}>
+          <div className="normal-lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="normal-lightbox-close"
+              onClick={() => setActiveImage(null)}
+              aria-label="Close photo"
+            >
+              &times;
+            </button>
+            <img src={activeImage.src} alt={activeImage.alt} className="normal-lightbox-img" />
+            <p className="normal-lightbox-caption">{activeImage.alt}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -103,3 +167,4 @@ if (rootElement) {
     </React.StrictMode>
   );
 }
+

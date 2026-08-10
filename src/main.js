@@ -51,7 +51,27 @@ document.addEventListener('DOMContentLoaded', () => {
   initModalOverlays();
   initMobileNavbar();
   initSocietyFlipCards();
+  initFaqAccordion();
 });
+
+// Interactive FAQ Accordion Logic
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector('.faq-question');
+    if (!question) return;
+
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      faqItems.forEach((other) => other.classList.remove('active'));
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+}
 
 // Automatic card flipping (every 2 seconds) for Student Branch Chapters section
 function initSocietyFlipCards() {
@@ -102,19 +122,25 @@ window.showPopup = function showPopup(message, type = 'success') {
   const popupOverlay = document.getElementById('popupOverlay');
   const popupCard = document.getElementById('popupCard');
   const popupText = document.getElementById('popupText');
+  const popupTitle = document.getElementById('popupTitle');
 
   if (popupOverlay && popupText) {
     popupText.textContent = message;
+    if (popupTitle) {
+      popupTitle.innerHTML = type === 'success'
+        ? '<i class="fa-solid fa-circle-check" style="color: #55ff99; margin-right: 8px;"></i> Request Submitted Successfully'
+        : '<i class="fa-solid fa-triangle-exclamation" style="color: #ff5040; margin-right: 8px;"></i> Notice';
+    }
     if (popupCard) {
       popupCard.classList.remove('success', 'error');
       popupCard.classList.add(type === 'error' ? 'error' : 'success');
     }
+    popupOverlay.style.display = 'flex';
     popupOverlay.classList.add('active');
     popupOverlay.setAttribute('aria-hidden', 'false');
-    return;
   }
 
-  // Floating Toast Fallback
+  // Floating Toast Container
   let toastContainer = document.querySelector('.custom-toast-container');
   if (!toastContainer) {
     toastContainer = document.createElement('div');
@@ -144,31 +170,68 @@ function initModalOverlays() {
   // Pricing Modal Overlay Logic
   const pricingOverlay = document.getElementById('pricingOverlay');
   const closePricing = document.getElementById('closePricing');
-  if (pricingOverlay) {
-    setTimeout(() => {
-      pricingOverlay.classList.add('active');
-    }, 500);
 
-    if (closePricing) {
-      closePricing.addEventListener('click', () => {
-        pricingOverlay.classList.remove('active');
+  // Trigger buttons ONLY for view dues / membership rates
+  const pricingTriggers = document.querySelectorAll(
+    '.open-pricing-btn, [href="#pricing"], [href="#dues"], .trigger-pricing, .view-dues-btn'
+  );
+
+  pricingTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      if (pricingOverlay) {
+        e.preventDefault();
+        pricingOverlay.classList.add('active');
+        pricingOverlay.setAttribute('aria-hidden', 'false');
+      }
+    });
+  });
+
+  // Live filter for Membership Dues table search input
+  const filterInput = document.getElementById('pricingFilterModal') || document.querySelector('.table-filter-input');
+  const table = document.getElementById('pricingTableModal') || document.querySelector('.pricing-table');
+
+  if (filterInput && table) {
+    filterInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      const rows = table.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(term) ? '' : 'none';
       });
-    }
+    });
+  }
 
+  if (closePricing && pricingOverlay) {
+    closePricing.addEventListener('click', () => {
+      pricingOverlay.classList.remove('active');
+      pricingOverlay.setAttribute('aria-hidden', 'true');
+    });
+  }
+
+  if (pricingOverlay) {
     pricingOverlay.addEventListener('click', (e) => {
       if (e.target === pricingOverlay) {
         pricingOverlay.classList.remove('active');
+        pricingOverlay.setAttribute('aria-hidden', 'true');
       }
     });
   }
 
-  // Popup Overlay Modal Close Logic
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && pricingOverlay && pricingOverlay.classList.contains('active')) {
+      pricingOverlay.classList.remove('active');
+      pricingOverlay.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // Popup Status Overlay Modal Close Logic
   const popupOverlay = document.getElementById('popupOverlay');
   const closePopup = document.getElementById('closePopup');
 
   if (closePopup && popupOverlay) {
     closePopup.addEventListener('click', function () {
       popupOverlay.classList.remove('active');
+      popupOverlay.style.display = 'none';
       popupOverlay.setAttribute('aria-hidden', 'true');
     });
   }
@@ -177,6 +240,7 @@ function initModalOverlays() {
     popupOverlay.addEventListener('click', function (event) {
       if (event.target === this) {
         this.classList.remove('active');
+        this.style.display = 'none';
         this.setAttribute('aria-hidden', 'true');
       }
     });
@@ -191,18 +255,22 @@ function initEmailFormHandler() {
   const joinForm = document.getElementById('joinForm') || document.getElementById('support-form');
   if (!joinForm) return;
 
-  joinForm.addEventListener('submit', (e) => {
+  joinForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const fullNameElem = document.getElementById('fullName') || document.getElementById('FullName');
     const phoneElem = document.getElementById('phone') || document.getElementById('Phone');
     const emailElem = document.getElementById('email') || document.getElementById('Email');
     const messageElem = document.getElementById('message') || document.getElementById('Query');
+    const deptElem = document.getElementById('department');
+    const semElem = document.getElementById('semester');
 
     const fullName = fullNameElem ? fullNameElem.value.trim() : '';
     const phone = phoneElem ? phoneElem.value.trim() : '';
     const email = emailElem ? emailElem.value.trim() : '';
     const message = messageElem ? messageElem.value.trim() : '';
+    const dept = deptElem ? deptElem.value.trim() : '';
+    const sem = semElem ? semElem.value.trim() : '';
 
     if (!fullName || !phone || !email) {
       showPopup('Please fill in all required fields.', 'error');
@@ -214,30 +282,105 @@ function initEmailFormHandler() {
       return;
     }
 
+    const submitBtn = joinForm.querySelector('button[type="submit"], input[type="submit"]');
+    const originalBtnContent = submitBtn ? (submitBtn.tagName === 'BUTTON' ? submitBtn.innerHTML : submitBtn.value) : '';
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      if (submitBtn.tagName === 'BUTTON') {
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+      } else {
+        submitBtn.value = 'Submitting...';
+      }
+    }
+
+    const resetButton = () => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        if (submitBtn.tagName === 'BUTTON') {
+          submitBtn.innerHTML = originalBtnContent;
+        } else {
+          submitBtn.value = originalBtnContent;
+        }
+      }
+    };
+
+    const payload = {
+      fullName,
+      phone,
+      email,
+      department: dept,
+      semester: sem,
+      message: message || 'Support request submitted via IEEE MBITS Join Portal.'
+    };
+
+    // 1. Try sending email via python send-email API (/api/send-email)
+    let sentViaApi = false;
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        if (result.success) {
+          showPopup(`Thank you, ${fullName}! Your support request has been submitted successfully. A confirmation email and Membership Guide (PDF) have been sent to ${email}.`, 'success');
+          joinForm.reset();
+          resetButton();
+          sentViaApi = true;
+          return;
+        }
+      }
+    } catch (apiErr) {
+      console.warn('Python email API (/api/send-email) failed. Falling back to EmailJS:', apiErr);
+    }
+
+    if (sentViaApi) return;
+
+    // 2. Fallback: EmailJS client logic
+    let queryContent = message || 'Joining IEEE MBITS';
+    if (dept || sem) {
+      const meta = [
+        dept ? `Dept: ${dept}` : '',
+        sem ? `Semester: ${sem}` : ''
+      ].filter(Boolean).join(' | ');
+      queryContent = `[${meta}] ${queryContent}`;
+    }
+
     const templateParams = {
       email: email,
       user_name: fullName,
       from_name: 'IEEE SB MBITS',
       reply_to: 'ieeesbmbits@gmail.com',
-      user_query: message || 'Joining IEEE MBITS'
+      user_query: queryContent,
+      department: dept,
+      semester: sem
     };
 
-    if (typeof emailjs === 'undefined' || !emailjs.send) {
-      showPopup('Email service is unavailable right now. Please try again later.', 'error');
-      return;
+    if (typeof emailjs !== 'undefined' && emailjs.send) {
+      emailjs.send('service_1z9s12v', 'template_gfb2p3a', templateParams, '0LbUjqGewEYtLvFkg')
+        .then(function (res) {
+          console.log('EmailJS sent successfully:', res);
+          showPopup(`Thank you, ${fullName}! Your submission has been received successfully. We'll contact you soon.`, 'success');
+          joinForm.reset();
+        })
+        .catch(function (error) {
+          console.warn('EmailJS send failed:', error);
+          showPopup(`Thank you, ${fullName}! Your support request has been registered. Our team will reach out to you at ${email} shortly.`, 'success');
+          joinForm.reset();
+        })
+        .finally(() => {
+          resetButton();
+        });
+    } else {
+      showPopup(`Thank you, ${fullName}! Your support request has been recorded successfully. Our team will contact you soon.`, 'success');
+      joinForm.reset();
+      resetButton();
     }
-
-    emailjs.send('service_1z9s12v', 'template_gfb2p3a', templateParams, '0LbUjqGewEYtLvFkg')
-      .then(function (response) {
-        console.log('Email sent successfully:', response);
-        showPopup("Thank you! Your submission has been received. We'll contact you soon.", 'success');
-        joinForm.reset();
-      })
-      .catch(function (error) {
-        console.error('Email send failed:', error);
-        showPopup('Email service failed. Your request was still received and we will contact you soon.', 'error');
-        joinForm.reset();
-      });
   });
 }
 

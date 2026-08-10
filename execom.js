@@ -767,7 +767,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       tile.innerHTML = `
         <div class="tile-header">
-          <span class="tile-num">${pad(i)}</span>
           <span class="tile-role">${roleText}</span>
         </div>
         <div class="tile-photo-wrapper">

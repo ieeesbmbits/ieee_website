@@ -212,7 +212,47 @@
 .event-actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
+}
+
+.btn-register {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-register.active {
+  background: linear-gradient(135deg, #ff5040 0%, #e03e28 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 80, 64, 0.35);
+  cursor: pointer;
+}
+
+.btn-register.active:hover {
+  background: linear-gradient(135deg, #e9d494 0%, #d4b868 100%);
+  color: #090909;
+  box-shadow: 0 6px 22px rgba(233, 212, 148, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-register.disabled,
+.btn-register:disabled {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #777777 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 0.75;
 }
 
 .btn-poster {

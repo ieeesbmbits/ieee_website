@@ -213,18 +213,40 @@ export const eventsData = [
   }
 ];
 
+function isEventPassed(dateStr) {
+  if (!dateStr) return true;
+  const parts = dateStr.trim().split(/\s+/);
+  if (parts.length < 2) return true;
+
+  const monthNames = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+  const mIndex = monthNames.indexOf(parts[0].toLowerCase().substring(0, 3));
+  const year = parseInt(parts[1], 10);
+
+  if (mIndex === -1 || isNaN(year)) return true;
+
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth();
+
+  if (year < currentYear) return true;
+  if (year === currentYear && mIndex < currentMonth) return true;
+  return false;
+}
+
 export function renderEvents() {
   const container = document.getElementById('eventsContainer');
   if (!container) return;
 
   container.innerHTML = eventsData.map((ev, index) => {
+    const passed = isEventPassed(ev.date);
+    const regButtonHtml = passed
+      ? `<button class="btn-register disabled" disabled><i class="fa-solid fa-lock"></i> Registration Closed</button>`
+      : `<a href="./join.html" class="btn-register active"><i class="fa-solid fa-pen-to-square"></i> Register Now</a>`;
+
     return `
       <article class="event-row">
         <div class="event-img-wrap" data-index="${index}">
-          <img src="${ev.image}" alt="${ev.title} Poster" class="event-img" loading="lazy" />
-          <div class="event-img-overlay">
-            <span class="zoom-hint"><i class="fa-solid fa-expand"></i> View Poster</span>
-          </div>
+          <img src="${ev.image}" alt="${ev.title}" class="event-img" loading="lazy" />
         </div>
         <div class="event-info-wrap">
           <div class="event-meta">
@@ -233,17 +255,15 @@ export function renderEvents() {
           <h2 class="event-title anton-regular">${ev.title}</h2>
           <p class="event-desc">${ev.description}</p>
           <div class="event-actions">
-            <button class="btn-poster" data-index="${index}">
-              <i class="fa-solid fa-image"></i> View Poster
-            </button>
+            ${regButtonHtml}
           </div>
         </div>
       </article>
     `;
   }).join('');
 
-  // Attach click handlers
-  container.querySelectorAll('.event-img-wrap, .btn-poster').forEach(el => {
+  // Attach click handlers on image wrap for lightbox
+  container.querySelectorAll('.event-img-wrap').forEach(el => {
     el.addEventListener('click', (e) => {
       e.stopPropagation();
       const idx = parseInt(el.getAttribute('data-index'), 10);
