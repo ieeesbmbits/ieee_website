@@ -358,7 +358,9 @@ function initEmailFormHandler() {
       reply_to: 'ieeesbmbits@gmail.com',
       user_query: queryContent,
       department: dept,
-      semester: sem
+      semester: sem,
+      admin_email: 'ieeesbmbits@mbits.ac.in',
+      to_email: `${email}, ieeesbmbits@mbits.ac.in, ieeesbmbits@gmail.com`
     };
 
     if (typeof emailjs !== 'undefined' && emailjs.send) {
