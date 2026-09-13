@@ -226,7 +226,13 @@ body.nav-open {
 @media (max-width: 850px) {
   .navbar {
     height: 70px;
-    background: rgba(9, 9, 9, 0.95) !important;
+    background: rgba(9, 9, 9, 0.96) !important;
+    background-color: rgba(9, 9, 9, 0.96) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(233, 212, 148, 0.15) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+    z-index: 1000 !important;
   }
 
   .nav-container {
@@ -312,11 +318,12 @@ body.nav-open {
     text-align: center;
   }
 
-  /* Prevent hero eclipse from causing horizontal overflow on mobile */
+  /* Prevent hero eclipse from causing horizontal overflow and reduce opacity on mobile */
   .hero-eclipse {
     min-width: unset;
     width: 80%;
     right: 0;
+    opacity: 0.25 !important;
   }
 }
 
@@ -462,6 +469,8 @@ body.nav-open {
   text-transform: uppercase;
   letter-spacing: 0.01em;
   color: var(--text-white);
+  position: relative;
+  top: -30px;
 }
 
 .text-gold {
@@ -4134,6 +4143,10 @@ label {
   top: -200px
 }
 
+.challenge-1 .arc {
+  min-height: 100%;
+}
+
 .challenge-1.small,
 .challenge-1.small.img {
   height: 1000px
@@ -4260,9 +4273,7 @@ label {
   line-height: 1.1;
   text-transform: uppercase;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2rem;
@@ -7562,9 +7573,14 @@ label {
   }
 
   .challenge-1 {
-    height: auto;
+    height: auto !important;
     padding-top: 0;
-    position: static
+    position: relative !important;
+  }
+
+  .challenge-1 .arc {
+    height: 100% !important;
+    min-height: 100% !important;
   }
 
   .challenge-1.small {
@@ -8207,11 +8223,27 @@ label {
   .challenge-text_wrap._1 {
     position: relative;
     top: 0;
-    margin-top: 40px;
+    margin-top: 20px;
+    width: 100%;
   }
 
   .challenge-text_wrap._1 .challenge-heading {
-    font-size: 3rem;
+    font-size: clamp(2rem, 6.5vw, 2.75rem);
+    display: block;
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .challenge-text_wrap._1 .challenge-content {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .challenge-text_wrap._1 .challenge-content p {
+    margin-bottom: 1rem;
   }
 
   .heading-style-h6 {
@@ -9061,13 +9093,29 @@ label {
   }
 
   .challenge-text_wrap._1 {
-    margin-top: 40px;
+    margin-top: 12px;
     position: relative;
     top: 0;
+    width: 100%;
   }
 
   .challenge-text_wrap._1 .challenge-heading {
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 7.5vw, 2.35rem);
+    display: block;
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .challenge-text_wrap._1 .challenge-content {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .challenge-text_wrap._1 .challenge-content p {
+    margin-bottom: 0.9rem;
   }
 
   .challenge-heading {
@@ -9903,13 +9951,17 @@ label {
   }
 
   .statement-text {
-    font-size: 2.5rem;
+    font-size: 2.15rem;
+    line-height: 1.05;
+    position: relative;
+    top: -110px;
   }
 
   .hero-eclipse {
     min-width: unset;
     width: 70%;
     right: 0;
+    opacity: 0.25 !important;
   }
 
   .challenge-heading {
@@ -10028,13 +10080,15 @@ label {
   will-change: transform;
 }
 
-.navbar {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+@media (min-width: 851px) {
+  .navbar {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
 }
 
 
@@ -10344,6 +10398,55 @@ input:nth-of-type(5):checked+.society_flip_card~.society_flip_card>.society_card
   transform: scale(1.3);
 }
 
+@media (max-width: 600px) {
+  .cards_grid.society_flip_container {
+    --img-w: 180px;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .society_flip_card {
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 18px !important;
+  }
+
+  .society_card_footer {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .society_nav_btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
+  .society_dots {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .society_dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .footer-right > div {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .footer-right .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+
 /* ==========================================
    SECTION FOOTER: Minimalistic Design
    ========================================== */
@@ -10561,7 +10664,9 @@ input:nth-of-type(5):checked+.society_flip_card~.society_flip_card>.society_card
 .footer-bottom {
   margin-top: 3.5rem;
   padding: 2rem 0 0;
+  height: auto !important;
   min-height: auto;
+  justify-content: flex-start !important;
   background: transparent !important;
   display: flex;
   flex-direction: column;
@@ -10689,7 +10794,9 @@ input:nth-of-type(5):checked+.society_flip_card~.society_flip_card>.society_card
   .footer-bottom {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
+    height: auto !important;
     min-height: auto;
+    justify-content: flex-start !important;
   }
 
   .footer-bottom-grid {

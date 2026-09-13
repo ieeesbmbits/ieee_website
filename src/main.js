@@ -411,8 +411,7 @@ function initOpeningHeroArcAnimation() {
       heroEclipse,
       {
         clipPath: 'inset(0% 0% 100% 0%)',
-        webkitClipPath: 'inset(0% 0% 100% 0%)',
-        opacity: 1
+        webkitClipPath: 'inset(0% 0% 100% 0%)'
       },
       {
         clipPath: 'inset(0% 0% 0% 0%)',
