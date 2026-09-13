@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "data": {
+    "organizationName": "IEEE Student Branch MBITS",
+    "institutionName": "Mar Baselios Institute of Technology and Science",
+    "address": {
+      "street": "Nellimattom P.O.",
+      "locality": "Kothamangalam",
+      "region": "Kerala",
+      "country": "India",
+      "postalCode": "686693"
+    },
+    "email": "ieeesbmbits@gmail.com",
+    "website": "https://ieeembits.com",
+    "latitude": 10.0581342,
+    "longitude": 76.6711249,
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.499029664069!2d76.6711249!3d10.058134200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07e8c21773f2f9%3A0xf8cc8247d7da7a9c!2sMar%20Baselios%20Institute%20of%20Technology%20and%20Science!5e0!3m2!1sen!2sin!4v1753464726332!5m2!1sen!2sin",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=10.0581342,76.6711249",
+    "chapters": [
+      "IEEE Signal Processing Society (SPS)",
+      "IEEE Computer Society (CS)",
+      "IEEE Women in Engineering (WIE)",
+      "IEEE Circuits and Systems Society (CASS)",
+      "IEEE Sensors Council"
+    ],
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/company/ieee-student-branch-mbits",
+      "instagram": "https://www.instagram.com/ieeesbmbits/",
+      "youtube": "https://www.youtube.com/@ieeesbmbits"
+    }
+  }
+}

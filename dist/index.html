@@ -15,9 +15,93 @@
     href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-  <script type="module" crossorigin src="./assets/main-D6Ldqr7Z.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-BfEwve4g.css">
+
+
+
+  <!-- Structured Data: EducationalOrganization -->
+  <script type="application/ld+json" id="organization-structured-data">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "IEEE Student Branch MBITS",
+    "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "Mar Baselios Institute of Technology and Science (MBITS)"
+    },
+    "url": "https://ieeembits.com",
+    "email": "ieeesbmbits@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Nellimattom P.O.",
+      "addressLocality": "Kothamangalam",
+      "addressRegion": "Kerala",
+      "postalCode": "686693",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 10.0581342,
+      "longitude": 76.6711249
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/ieee-student-branch-mbits",
+      "https://www.instagram.com/ieeesbmbits/",
+      "https://www.youtube.com/@ieeesbmbits"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json" id="faq-structured-data">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is IEEE and why should I join?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IEEE is the world's largest technical professional organization dedicated to advancing technology for humanity. By joining, students gain access to technical research, networking opportunities, career resources, professional communities, and technical publications."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I become a member of IEEE MBITS Student Branch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Students from MBITS can join through the official membership registration process. Members gain access to IEEE MBITS events, workshops, technical chapters, mentoring, and global IEEE resources."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What activities and events do you organize?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IEEE SB MBITS organizes technical workshops, guest lectures, hackathons, research activities, networking events, innovation programs, competitions, and entrepreneurship initiatives."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there any membership fees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IEEE Student membership has a nominal annual fee and provides access to IEEE resources such as IEEE Xplore, career guidance, technical communities, and student benefits. Current dues must be verified against the official IEEE Membership Dues Portal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I participate in research projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Students can participate in research activities with faculty and industry partners, contribute to technical publications, and present their work at IEEE conferences and events."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="module" crossorigin src="./assets/main-BbjSRipP.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CQH64jGo.css">
 </head>
 
 <body>
@@ -36,12 +120,14 @@
         <a href="./execom.html" class="nav-link">Execom</a>
         <a href="./gallery.html" class="nav-link">Gallery</a>
         <a href="./event.html" class="nav-link">Events</a>
-        <a href="#support-request" class="btn btn-donate mobile-nav-join">Join Now</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#location" class="nav-link">Location</a>
+        <a href="./join.html" class="btn btn-donate mobile-nav-join">Join Now</a>
       </nav>
 
       <!-- Right Action Buttons -->
       <div class="nav-actions">
-        <a href="#support-request" class="btn btn-donate desktop-join">Join Now</a>
+        <a href="./join.html" class="btn btn-donate desktop-join">Join Now</a>
         <button class="nav-hamburger" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
@@ -66,7 +152,7 @@
         student leaders.
       </p>
       <div class="hero-actions">
-        <a href="#support-request" class="btn btn-donate-large">Join Now</a>
+        <a href="./join.html" class="btn btn-donate-large">Join Now</a>
       </div>
     </div>
   </section>
@@ -101,24 +187,36 @@
         <div class="container-large challenge-container">
           <div class="challenge-text_wrap _1">
             <h2 class="challenge-heading anton-regular">HISTORY OF IEEE SB MBITS</h2>
-            <div class="challenge-content">
-              <p>The IEEE Student Branch at Mar Baselios Institute of Technology and Science (MBITS) was established on
-                3rd July 2022 with an initial membership of 34 students. It was formed with the aim of promoting
-                technical excellence, innovation, and professional development among students.</p>
-              <p>The branch was initially guided by Dr. Robin George, Assistant Professor in the Department of
-                Electronics and Communication Engineering (ECE), and led by its first Student Branch Chair, Dileep Kumar
-                A. from the ECE Department. The official inauguration was conducted by Dr. Rajesh M. V, Chairman of the
-                IEEE Kochi Subsection at that time.</p>
-              <p>At present, the branch is led by Student Branch Counselor Prof. Minu Mary Joy, Assistant Professor in
-                the Department of Electrical and Electronics Engineering (EEE), and Student Branch Chair Tisa Tijo.
-                Under their leadership, the branch has grown significantly, now boasting a membership of 188 students
-                across various departments.</p>
-              <p>Since its inception, IEEE SB MBITS has launched four active Student Branch Chapters (SBCs): the IEEE
-                Signal Processing Society (SPS), the IEEE Circuits and Systems Society (CASS), the IEEE Women in
-                Engineering (WIE) Affinity Group, the IEEE Computer Society (CS) and the IEEE Sensors Council. These
-                chapters play a vital role in organizing workshops, technical talks, coding competitions, and
-                hackathons, fostering an ecosystem of innovation, collaboration, and technical growth within the
-                institution.</p>
+            <div class="challenge-content"
+              style="font-weight: 600; font-size: 1.05rem; line-height: 1.75; color: #111111;">
+              <p>The <strong style="color: #003366;">IEEE Student Branch at Mar Baselios Institute of Technology and
+                  Science (MBITS)</strong> was established on <strong style="color: #003366;">3rd July 2022</strong>
+                with an initial membership of <strong style="color: #003366;">34 students</strong>. The branch was
+                founded with the vision of promoting technical excellence, innovation, professional development, and
+                active student engagement within the institution.</p>
+              <p>The branch was initially guided by <strong style="color: #003366;">Dr. Robin George</strong>, Assistant
+                Professor in the Department of Electronics and Communication Engineering (ECE), and led by its first
+                Student Branch Chair, <strong style="color: #003366;">Dileep Kumar A.</strong>, from the ECE Department.
+                The official inauguration was conducted by <strong style="color: #003366;">Dr. Rajesh M. V</strong>, who
+                served as the Chairman of the IEEE Kochi Subsection at the time.</p>
+              <p>At present, the branch is guided by <strong style="color: #003366;">Prof. Minu Mary Joy</strong>,
+                Assistant Professor in the Department of Electrical and Electronics Engineering (EEE), serving as the
+                Student Branch Counselor. Under the guidance of its leadership and dedicated student volunteers, IEEE SB
+                MBITS has witnessed significant growth, expanding its membership to <strong style="color: #003366;">188
+                  students</strong> from various departments.</p>
+              <p>Since its inception, IEEE SB MBITS has established several active Student Branch Chapters and Affinity
+                Groups, including the <strong style="color: #003366;">IEEE Signal Processing Society (SPS)</strong>,
+                <strong style="color: #003366;">IEEE Circuits and Systems Society (CASS)</strong>, <strong
+                  style="color: #003366;">IEEE Women in Engineering (WIE) Affinity Group</strong>, <strong
+                  style="color: #003366;">IEEE Computer Society (CS)</strong>, and the <strong
+                  style="color: #003366;">IEEE Sensors Council</strong>. These chapters and groups contribute
+                significantly to the technical and professional development of students by organizing workshops,
+                technical talks, coding competitions, hackathons, awareness programs, and other engaging activities.
+              </p>
+              <p>Through these initiatives, IEEE SB MBITS continues to foster a vibrant ecosystem of <strong
+                  style="color: #003366;">innovation, collaboration, leadership, and technical excellence</strong>,
+                empowering students to explore emerging technologies and actively contribute to the broader IEEE
+                community.</p>
             </div>
           </div>
         </div>
@@ -387,6 +485,205 @@
     </div>
   </div>
 
+  <!-- Frequently Asked Questions Section -->
+  <section class="section-faq" id="faq" aria-labelledby="faq-title">
+    <div class="faq-container">
+      <div class="faq-header">
+        <h2 class="faq-section-title anton-regular" id="faq-title">
+          FREQUENTLY ASKED <span class="text-gold">QUESTIONS</span>
+        </h2>
+        <p class="faq-section-subtitle">Find answers to commonly asked questions about membership, activities, and
+          opportunities at IEEE Student Branch MBITS.</p>
+      </div>
+
+      <div class="faq-list" id="faqList" role="region" aria-label="Frequently Asked Questions Accordion">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item" data-faq-id="ieee-membership-benefits">
+          <h3 class="faq-item-heading">
+            <button class="faq-question" type="button" id="faq-btn-1" aria-expanded="false" aria-controls="faq-ans-1">
+              <span class="faq-question-text">What is IEEE and why should I join?</span>
+              <span class="faq-toggle" aria-hidden="true">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1">
+            <div class="faq-answer-inner">
+              <p>IEEE is the world's largest technical professional organization dedicated to advancing technology for
+                humanity. By joining, students gain access to technical research, networking opportunities, career
+                resources, professional communities, and technical publications.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item" data-faq-id="ieee-how-to-join">
+          <h3 class="faq-item-heading">
+            <button class="faq-question" type="button" id="faq-btn-2" aria-expanded="false" aria-controls="faq-ans-2">
+              <span class="faq-question-text">How can I become a member of IEEE MBITS Student Branch?</span>
+              <span class="faq-toggle" aria-hidden="true">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2">
+            <div class="faq-answer-inner">
+              <p>Students from MBITS can join through the official membership registration process. Members gain access
+                to IEEE MBITS events, workshops, technical chapters, mentoring, and global IEEE resources.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item" data-faq-id="ieee-activities-events">
+          <h3 class="faq-item-heading">
+            <button class="faq-question" type="button" id="faq-btn-3" aria-expanded="false" aria-controls="faq-ans-3">
+              <span class="faq-question-text">What activities and events do you organize?</span>
+              <span class="faq-toggle" aria-hidden="true">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3">
+            <div class="faq-answer-inner">
+              <p>IEEE SB MBITS organizes technical workshops, guest lectures, hackathons, research activities,
+                networking events, innovation programs, competitions, and entrepreneurship initiatives.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item" data-faq-id="ieee-membership-fees">
+          <h3 class="faq-item-heading">
+            <button class="faq-question" type="button" id="faq-btn-4" aria-expanded="false" aria-controls="faq-ans-4">
+              <span class="faq-question-text">Are there any membership fees?</span>
+              <span class="faq-toggle" aria-hidden="true">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4">
+            <div class="faq-answer-inner">
+              <p>IEEE Student membership has a nominal annual fee and provides access to IEEE resources such as IEEE
+                Xplore, career guidance, technical communities, and student benefits. Current dues must be verified
+                against the official IEEE Membership Dues Portal.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item" data-faq-id="ieee-research-opportunities">
+          <h3 class="faq-item-heading">
+            <button class="faq-question" type="button" id="faq-btn-5" aria-expanded="false" aria-controls="faq-ans-5">
+              <span class="faq-question-text">Can I participate in research projects?</span>
+              <span class="faq-toggle" aria-hidden="true">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5">
+            <div class="faq-answer-inner">
+              <p>Yes. Students can participate in research activities with faculty and industry partners, contribute to
+                technical publications, and present their work at IEEE conferences and events.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Map Section -->
+  <section class="section-location" id="location" aria-labelledby="location-title">
+    <div class="location-container">
+      <div class="location-header">
+        <h2 class="location-section-title anton-regular" id="location-title">
+          VISIT <span class="text-gold">IEEE MBITS</span>
+        </h2>
+        <p class="location-section-subtitle">Located in the lush campus of Mar Baselios Institute of Technology and
+          Science, Ernakulam, Kerala.</p>
+      </div>
+
+      <div class="location-grid">
+        <!-- Map Card -->
+        <div class="location-card location-map-card">
+          <div class="location-card-header">
+            <h3 class="location-card-title anton-regular">
+              <i class="fa-solid fa-map-location-dot"></i> FIND US ON MAP
+            </h3>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=10.0581342,76.6711249" target="_blank"
+              rel="noopener noreferrer" class="btn-directions" id="getDirectionsBtn"
+              aria-label="Get driving directions to MBITS on Google Maps">
+              <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+            </a>
+          </div>
+
+          <div class="map-embed-wrapper" id="mapEmbedWrapper">
+            <iframe id="googleMapsIframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.499029664069!2d76.6711249!3d10.058134200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07e8c21773f2f9%3A0xf8cc8247d7da7a9c!2sMar%20Baselios%20Institute%20of%20Technology%20and%20Science!5e0!3m2!1sen!2sin!4v1753464726332!5m2!1sen!2sin"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mar Baselios Institute of Technology and Science Campus Location Map"
+              aria-label="Google Maps view of Mar Baselios Institute of Technology and Science campus"></iframe>
+            <div class="map-fallback-overlay" id="mapFallback" style="display: none;">
+              <p>Map preview unavailable.</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=10.0581342,76.6711249" target="_blank"
+                rel="noopener noreferrer" class="map-fallback-link">
+                Open directly in Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Campus Info Card -->
+        <div class="location-card location-info-card">
+          <div class="location-card-header">
+            <h3 class="location-card-title anton-regular">
+              <i class="fa-solid fa-building-columns"></i> IEEE MBITS CAMPUS
+            </h3>
+          </div>
+
+          <div class="location-info-list" id="locationInfoList">
+            <div class="location-info-item">
+              <div class="location-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="location-info-text">
+                <h4>CAMPUS ADDRESS</h4>
+                <p id="locAddress">Mar Baselios Institute of Technology and Science (MBITS)<br>Nellimattom P.O.,
+                  Kothamangalam<br>Ernakulam District, Kerala, India - 686693</p>
+              </div>
+            </div>
+
+            <div class="location-info-item">
+              <div class="location-info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="location-info-text">
+                <h4>GET IN TOUCH</h4>
+                <p>
+                  Email: <a href="mailto:ieeesbmbits@gmail.com" class="location-link"
+                    id="locEmailLink">ieeesbmbits@gmail.com</a><br>
+                  Website: <a href="https://ieeembits.com" target="_blank" rel="noopener noreferrer"
+                    class="location-link" id="locWebsiteLink">ieeembits.com</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="location-info-item">
+              <div class="location-info-icon"><i class="fa-solid fa-microchip"></i></div>
+              <div class="location-info-text">
+                <h4>TECHNICAL CHAPTERS</h4>
+                <div class="location-chapters-tags" id="locChapters">
+                  <span class="chapter-tag">IEEE Signal Processing Society (SPS)</span>
+                  <span class="chapter-tag">IEEE Computer Society (CS)</span>
+                  <span class="chapter-tag">IEEE Women in Engineering (WIE)</span>
+                  <span class="chapter-tag">IEEE Circuits and Systems Society (CASS)</span>
+                  <span class="chapter-tag">IEEE Sensors Council</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SECTION FOOTER: Contact & Social Links -->
   <footer class="section_footer" id="contact">
     <div class="footer-top-curve">
@@ -418,21 +715,16 @@
               </a>
             </div>
           </div>
-          <div class="footer-right" id="support-request">
-            <h2 class="footer-heading">Support Request</h2>
-            <p class="text-size-large">Submit a support request to get in touch with our team:</p>
-            <div class="footer-form-block w-form">
-              <form id="joinForm" name="support-form" method="post" class="form">
-                <input class="form-field w-input" maxlength="256" name="FullName" placeholder="Full Name" type="text"
-                  id="fullName" required="" />
-                <input class="form-field w-input" maxlength="256" name="Phone" placeholder="Phone Number" type="tel"
-                  id="phone" required="" />
-                <input class="form-field w-input" maxlength="256" name="Email" placeholder="Email Address" type="email"
-                  id="email" required="" />
-                <textarea class="form-field w-input" maxlength="5000" name="Query" placeholder="Your Query / Message"
-                  id="message" rows="4"></textarea>
-                <input type="submit" class="form-submit w-button" value="Submit Request" />
-              </form>
+          <div class="footer-right">
+            <h2 class="footer-heading">IEEE SB MBITS</h2>
+            <p class="text-size-large">Advancing Technology for Humanity through excellence, research, and leadership at
+              Mar Baselios Institute of Technology and Science.</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 1.5rem;">
+              <a href="./join.html" class="btn btn-donate">Join Now &rarr;</a>
+              <a href="./join.html#membership-dues-section" class="btn btn-secondary view-dues-btn"
+                style="padding: 12px 20px; font-weight: 700; font-size: 0.95rem; border-radius: 8px; cursor: pointer; border: 2px solid #111111; background: transparent; color: #111111; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-layer-group"></i> View Dues & Rates
+              </a>
             </div>
           </div>
         </div>
@@ -484,7 +776,8 @@
   <script src="https://cdn.jsdelivr.net/npm/lumious-components@latest/component/ticker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
-
+
+
 </body>
 
 </html>

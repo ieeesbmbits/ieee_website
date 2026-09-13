@@ -771,7 +771,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="tile-role">${roleText}</span>
         </div>
         <div class="tile-photo-wrapper">
-          <img src="${m.photo}" alt="${m.name}" class="tile-photo" loading="lazy" onError="this.src='./logo.png'" />
+          <img src="${m.photo}" alt="${m.name}" class="tile-photo" loading="lazy" onError="this.src='./logo.webp'" />
           <div class="tile-photo-overlay"></div>
         </div>
         <div class="tile-info">

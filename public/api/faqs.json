@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": "ieee-membership-benefits",
+      "question": "What is IEEE and why should I join?",
+      "answer": "IEEE is the world's largest technical professional organization dedicated to advancing technology for humanity. By joining, students gain access to technical research, networking opportunities, career resources, professional communities, and technical publications.",
+      "order": 1,
+      "published": true
+    },
+    {
+      "id": "ieee-how-to-join",
+      "question": "How can I become a member of IEEE MBITS Student Branch?",
+      "answer": "Students from MBITS can join through the official membership registration process. Members gain access to IEEE MBITS events, workshops, technical chapters, mentoring, and global IEEE resources.",
+      "order": 2,
+      "published": true
+    },
+    {
+      "id": "ieee-activities-events",
+      "question": "What activities and events do you organize?",
+      "answer": "IEEE SB MBITS organizes technical workshops, guest lectures, hackathons, research activities, networking events, innovation programs, competitions, and entrepreneurship initiatives.",
+      "order": 3,
+      "published": true
+    },
+    {
+      "id": "ieee-membership-fees",
+      "question": "Are there any membership fees?",
+      "answer": "IEEE Student membership has a nominal annual fee and provides access to IEEE resources such as IEEE Xplore, career guidance, technical communities, and student benefits. Current dues must be verified against the official IEEE Membership Dues Portal.",
+      "order": 4,
+      "published": true
+    },
+    {
+      "id": "ieee-research-opportunities",
+      "question": "Can I participate in research projects?",
+      "answer": "Yes. Students can participate in research activities with faculty and industry partners, contribute to technical publications, and present their work at IEEE conferences and events.",
+      "order": 5,
+      "published": true
+    }
+  ]
+}
