@@ -1,6 +1,34 @@
 /* Events Data and Dynamic Renderer for IEEE MBITS SB */
 
 export const eventsData = [
+    {
+    id: "cyber_wellness",
+    title: "The Cyber Wellness Mission - Webinar ",
+    date: "Aug 2026",
+    image: "events/ONAM 2089: A KERALA ODYSSEY.jpg",
+    description: ""
+  },
+    {
+    id: "onam2089",
+    title: "ONAM 2089: A KERALA ODYSSEY ",
+    date: "Aug 2026",
+    image: "events/ONAM 2089: A KERALA ODYSSEY.jpg",
+    description: "A Digital Onam comic making Challenge"
+  },
+    {
+    id: "sih26",
+    title: "SIH 2026 - Orientation Session ",
+    date: "Aug 2026",
+    image: "events/SIH Orientation Session.jpg",
+    description: ""
+  },
+    {
+    id: "card_gratitude",
+    title: "Card of Gratitude ",
+    date: "Jun 2026",
+    image: "events/Card of Gratitude- A Digital Teachers Day Challenge.jpg",
+    description: "A Digital Teachers Day Challenge"
+  },
 /*  {
     id: "webinar_agentic_ai",
     title: "Webinar on Agentic AI",
