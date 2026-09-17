@@ -1,6 +1,28 @@
 /* Events Data and Dynamic Renderer for IEEE MBITS SB */
 
 export const eventsData = [
+/*  {
+    id: "webinar_agentic_ai",
+    title: "Webinar on Agentic AI",
+    date: "Jun 2026",
+    image: "events/GreenPromt.jpg",
+    description: "To introduce participants to Agentic AI and provide insights into intelligent systems capable of reasoning, planning, decision-making, and performing tasks autonomously..
+"
+  },*/
+  {
+    id: "green_prompt",
+    title: "GREENPROMPT – AI Prompt Challenge ",
+    date: "Jun 2026",
+    image: "events/GreenPromt.jpg",
+    description: "GREENPROMPT – AI Prompt Challenge under the theme “Prompt the Future. Protect the Planet.”"
+  },
+  {
+    id: "myosa_6",
+    title: "MYOSA 6.0 ORIENTATION",
+    date: "Jun 2026",
+    image: "events/Myosa 6.0 Orientation.jpeg",
+    description: "Familiarize participants with the MYOSA 6.0 platform and its objectives"
+  },
   {
     id: "robotic-drone",
     title: "ROBOTICS AND DRONE WORKSHOP",
