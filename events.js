@@ -5,7 +5,7 @@ export const eventsData = [
     id: "cyber_wellness",
     title: "The Cyber Wellness Mission - Webinar ",
     date: "Aug 2026",
-    image: "events/ONAM 2089: A KERALA ODYSSEY.jpg",
+    image: "events/The Cyber Wellness Mission Webinar.jpg",
     description: ""
   },
     {
