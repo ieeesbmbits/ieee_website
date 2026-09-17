@@ -2,6 +2,13 @@
 
 export const eventsData = [
   {
+    id: "robotic-drone",
+    title: "ROBOTICS AND DRONE WORKSHOP",
+    date: "Jun 2026",
+    image: "events/Robotics and Drone Workshop.png",
+    description: "Familiarize students with the design, components, programming, operation, and real-world applications of robots and drones"
+  },
+  {
     id: "skill-hunt",
     title: "Skill Hunt",
     date: "Jun 2026",
