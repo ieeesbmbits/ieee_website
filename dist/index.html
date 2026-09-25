@@ -15,8 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-
+
 
   <!-- Structured Data: EducationalOrganization -->
   <script type="application/ld+json" id="organization-structured-data">
@@ -100,8 +99,8 @@
     ]
   }
   </script>
-  <script type="module" crossorigin src="./assets/main-BbjSRipP.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-CQH64jGo.css">
+  <script type="module" crossorigin src="./assets/main-DhshM4SY.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CDWjq2M7.css">
 </head>
 
 <body>
@@ -109,9 +108,9 @@
   <!-- Navigation Bar (Fixed & Transparent) -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <!-- Brand Logo: logo.png -->
+      <!-- Brand Logo: logo.webp -->
       <a href="#" class="brand-logo" aria-label="IEEE MBITS Home">
-        <img src="./logo.png" alt="IEEE MBITS Logo" class="brand-logo-img" />
+        <img src="./logo.webp" alt="IEEE MBITS Logo" class="brand-logo-img" />
       </a>
 
       <!-- Left-aligned Nav Links next to Logo -->
@@ -120,8 +119,6 @@
         <a href="./execom.html" class="nav-link">Execom</a>
         <a href="./gallery.html" class="nav-link">Gallery</a>
         <a href="./event.html" class="nav-link">Events</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <a href="#location" class="nav-link">Location</a>
         <a href="./join.html" class="btn btn-donate mobile-nav-join">Join Now</a>
       </nav>
 
@@ -187,8 +184,7 @@
         <div class="container-large challenge-container">
           <div class="challenge-text_wrap _1">
             <h2 class="challenge-heading anton-regular">HISTORY OF IEEE SB MBITS</h2>
-            <div class="challenge-content"
-              style="font-weight: 600; font-size: 1.05rem; line-height: 1.75; color: #111111;">
+            <div class="challenge-content">
               <p>The <strong style="color: #003366;">IEEE Student Branch at Mar Baselios Institute of Technology and
                   Science (MBITS)</strong> was established on <strong style="color: #003366;">3rd July 2022</strong>
                 with an initial membership of <strong style="color: #003366;">34 students</strong>. The branch was
@@ -211,8 +207,7 @@
                   style="color: #003366;">IEEE Computer Society (CS)</strong>, and the <strong
                   style="color: #003366;">IEEE Sensors Council</strong>. These chapters and groups contribute
                 significantly to the technical and professional development of students by organizing workshops,
-                technical talks, coding competitions, hackathons, awareness programs, and other engaging activities.
-              </p>
+                technical talks, coding competitions, hackathons, awareness programs, and other engaging activities.</p>
               <p>Through these initiatives, IEEE SB MBITS continues to foster a vibrant ecosystem of <strong
                   style="color: #003366;">innovation, collaboration, leadership, and technical excellence</strong>,
                 empowering students to explore emerging technologies and actively contribute to the broader IEEE
@@ -596,6 +591,7 @@
   <section class="section-location" id="location" aria-labelledby="location-title">
     <div class="location-container">
       <div class="location-header">
+        <span class="section-tag"><i class="fa-solid fa-map-pin"></i> OUR CAMPUS</span>
         <h2 class="location-section-title anton-regular" id="location-title">
           VISIT <span class="text-gold">IEEE MBITS</span>
         </h2>
@@ -721,7 +717,8 @@
               Mar Baselios Institute of Technology and Science.</p>
             <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 1.5rem;">
               <a href="./join.html" class="btn btn-donate">Join Now &rarr;</a>
-              <a href="./join.html#membership-dues-section" class="btn btn-secondary view-dues-btn"
+              <a href="#pricing" class="btn btn-secondary view-dues-btn" id="openPricingBtnIndex" aria-haspopup="dialog"
+                aria-expanded="false"
                 style="padding: 12px 20px; font-weight: 700; font-size: 0.95rem; border-radius: 8px; cursor: pointer; border: 2px solid #111111; background: transparent; color: #111111; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                 <i class="fa-solid fa-layer-group"></i> View Dues & Rates
               </a>
@@ -761,6 +758,249 @@
     </div>
   </footer>
 
+  <!-- Membership Dues Popup Card Modal -->
+  <div class="popup-overlay pricing-overlay" id="pricingOverlay" aria-hidden="true">
+    <div class="popup-card pricing-modal-card" role="dialog" aria-modal="true">
+      <button type="button" class="close-popup" id="closePricing" aria-label="Close modal">&times;</button>
+
+      <div class="join-card-header">
+        <h2 class="join-card-title anton-regular"><i class="fa-solid fa-layer-group"></i> MEMBERSHIP DUES</h2>
+        <p class="join-card-desc">Reduced Student Rates (50% Off Half-Year Offer) &amp; Society Dues Reference.</p>
+      </div>
+
+      <!-- Active SB Chapters Badges -->
+      <div class="active-chapters-badges">
+        <span class="chapter-badge featured"><i class="fa-solid fa-star"></i> Active SB Chapters</span>
+        <span class="chapter-badge"><i class="fa-solid fa-microchip"></i> SPS</span>
+        <span class="chapter-badge"><i class="fa-solid fa-wave-square"></i> CASS</span>
+        <span class="chapter-badge"><i class="fa-solid fa-female"></i> WIE</span>
+        <span class="chapter-badge"><i class="fa-solid fa-laptop-code"></i> CS</span>
+        <span class="chapter-badge"><i class="fa-solid fa-rss"></i> Sensors Council</span>
+      </div>
+
+      <!-- Table Search Filter -->
+      <div class="table-filter-bar">
+        <i class="fa-solid fa-magnifying-glass table-filter-icon"></i>
+        <input type="text" id="pricingFilterModal" class="table-filter-input"
+          placeholder="Search IEEE Society or Membership..." />
+      </div>
+
+      <!-- Dues Table -->
+      <div class="pricing-table-wrapper">
+        <table class="pricing-table" id="pricingTableModal">
+          <thead>
+            <tr>
+              <th>Membership / Society</th>
+              <th>Reduced Student Fee (50%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="active-sb-row">
+              <td><strong>IEEE Student Membership</strong></td>
+              <td><span class="price-tag">US$7.00</span></td>
+            </tr>
+            <tr class="active-sb-row">
+              <td>IEEE Signal Processing Society (SPS)</td>
+              <td><span class="price-tag">US$2.00</span></td>
+            </tr>
+            <tr class="active-sb-row">
+              <td>IEEE Circuits and Systems Society (CAS - First Time)</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr class="active-sb-row">
+              <td>IEEE Circuits and Systems Society (CAS - Renewal)</td>
+              <td><span class="price-tag">US$5.50</span></td>
+            </tr>
+            <tr class="active-sb-row">
+              <td>IEEE Women in Engineering (WIE)</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr class="active-sb-row">
+              <td>IEEE Computer Society (CS)</td>
+              <td><span class="price-tag">US$4.00</span></td>
+            </tr>
+            <tr class="active-sb-row">
+              <td>IEEE Sensors Council</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Communications Society (ComSoc)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Power &amp; Energy Society (PES)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Robotics and Automation Society (RAS)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Computational Intelligence Society (CIS)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE SIGHT</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Electron Devices Society (EDS)</td>
+              <td><span class="price-tag">US$1.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Industrial Electronics Society (IES)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Industry Applications Society (IAS)</td>
+              <td><span class="price-tag">US$1.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Systems, Man, and Cybernetics Society (SMCS)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Microwave Theory and Techniques Society (MTT-S)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Engineering in Medicine and Biology Society (EMBS)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Photonics Society</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Instrumentation and Measurement Society (IMS)</td>
+              <td><span class="price-tag">US$1.00</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Antennas and Propagation Society (APS)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Consumer Technology Society (CTSoc)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Technology and Engineering Management Society (TEMS)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Geoscience and Remote Sensing Society (GRSS)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Control Systems Society (CSS)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Intelligent Transportation Systems Society (ITSS)</td>
+              <td><span class="price-tag">US$1.00</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Electronics Packaging Society (EPS)</td>
+              <td><span class="price-tag">US$4.00</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Aerospace and Electronic Systems Society (AESS)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Magnetics Society</td>
+              <td><span class="price-tag">US$1.00</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Education Society (EdSoc)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Reliability Society</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Society on Social Implications of Technology (SSIT)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Oceanic Engineering Society (OES)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Electromagnetic Compatibility Society (EMCS)</td>
+              <td><span class="price-tag">US$6.00</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Ultrasonics, Ferroelectrics and Frequency Control Society (UFFC-S)</td>
+              <td><span class="price-tag">US$5.00</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Broadcast Technology Society (BTS)</td>
+              <td><span class="price-tag">US$5.00</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Professional Communication Society (PCS)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Product Safety Engineering Society (PSES)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Dielectrics and Electrical Insulation Society (DEIS)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Vehicular Technology Society (VTS)</td>
+              <td><span class="price-tag">US$0.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Nanotechnology Council (NTC)</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Biometrics Council</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Council on Electronic Design Automation (CEDA)</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Council on RFID</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Systems Council</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Superconductivity Council</td>
+              <td><span class="price-tag free">Free</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Nuclear and Plasma Sciences Society (NPSS)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+            <tr>
+              <td>IEEE Solid-State Circuits Society (SSCS)</td>
+              <td><span class="price-tag">US$2.50</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="official-dues-note">
+        <span>* Official dues reference:</span>
+        <a href="https://www.ieee.org/membership/join/dues" target="_blank" rel="noopener noreferrer"
+          class="official-dues-link">
+          IEEE Membership Dues Portal <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- jQuery & Webflow JS Core -->
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=679c5385850946f4c2b4202a"
     type="text/javascript" crossorigin="anonymous"></script>
@@ -776,8 +1016,7 @@
   <script src="https://cdn.jsdelivr.net/npm/lumious-components@latest/component/ticker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
-
-
+
 </body>
 
 </html>

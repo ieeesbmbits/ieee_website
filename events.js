@@ -6,37 +6,78 @@ export const eventsData = [
     title: "The Cyber Wellness Mission - Webinar ",
     date: "Aug 2026",
     image: "events/The Cyber Wellness Mission Webinar.jpg",
-    description: ""
+    description: "A webinar empowering students with essential cybersecurity awareness, digital safety, and cyber hygiene habits."
   },
-    {
+  {
     id: "onam2089",
     title: "ONAM 2089: A KERALA ODYSSEY ",
     date: "Aug 2026",
-    image: "events/ONAM 2089: A KERALA ODYSSEY.jpg",
+    image: "events/ONAM 2089 - A KERALA ODYSSEY.jpg",
     description: "A Digital Onam comic making Challenge"
   },
-    {
+/*  {
+    id: "sih26_internal",
+    title: "Smart India Hackathon (SIH) 2026 - Internal Hackathon",
+    date: "Aug 2026",
+    image: "events/Smart India Hackathon (SIH) 2026 - Internal Hackathon/sih poster.jpg",
+    description: "College-level internal hackathon for Smart India Hackathon (SIH) 2026 organized by MBITS in collaboration with MoE Innovation Cell and IEEE Student Branch."
+  },*/
+  {
+    id: "can_you_feel_her_pain",
+    title: "CAN YOU FEEL HER PAIN?",
+    date: "Aug 2026",
+    image: "events/CAN YOU FEEL HER PAIN/Picture.jpg",
+    description: "An interactive period-cramp simulator experience organized by IEEE WIE Affinity Group MBITS to foster empathy and initiate meaningful conversations on menstrual health."
+  },
+  {
+    id: "open_doors",
+    title: "OPEN DOORS WITH IEEE - IEEE Orientation",
+    date: "Aug 2026",
+    image: "events/OPEN DOORS WITH IEEE - IEEE Orientation/IEEE orientation poster.jpg",
+    description: "An inspiring orientation session 'Explore • Engage • Excel' by Mohammed Fizal (Co-Founder, Brightforge Technologies) introducing students to IEEE opportunities and networking."
+  },
+  {
     id: "sih26",
     title: "SIH 2026 - Orientation Session ",
     date: "Aug 2026",
     image: "events/SIH Orientation Session.jpg",
-    description: ""
+    description: "An orientation session providing guidance on problem statements, ideation guidelines, and submission strategies for Smart India Hackathon 2026."
   },
-    {
+  {
+    id: "vivado_webinar",
+    title: "Introduction to Vivado Design Suite - Webinar",
+    date: "Jul 2026",
+    image: "events/Introduction to Vivado Design Suite - Webinar/Picture4.jpg",
+    description: "A technical webinar on Vivado Design Suite and FPGA development workflows, conducted by Sooraj Sajeev (Systems Engineer, TCS) in collaboration with IEEE CASS and SPS MBITS."
+  },
+  {
+    id: "blueprint_breakthrough",
+    title: "Blueprint to Breakthrough",
+    date: "Jul 2026",
+    image: "events/Blueprint to Breakthrough/Picture.jpg",
+    description: "A workshop on Basic UI Design for Problem Identification organized by IEEE CS SBC and WIE AG MBITS, led by Mr. Eldhose P. Sim (IIC Innovation Ambassador)."
+  },
+  {
     id: "card_gratitude",
     title: "Card of Gratitude ",
     date: "Jun 2026",
     image: "events/Card of Gratitude- A Digital Teachers Day Challenge.jpg",
     description: "A Digital Teachers Day Challenge"
   },
-/*  {
+  {
+    id: "informatyka_6",
+    title: "Informatyka 6.0 - ObjectQuest",
+    date: "Jun 2026",
+    image: "events/Informatyka 6.0 - ObjectQuest/Picture.jpg",
+    description: "An engaging talk session on Object-Oriented Programming (OOP) concepts, paradigms, and software design principles by Gauri Shankar G. Nair as part of INFORMATYKA 6.0."
+  },
+  {
     id: "webinar_agentic_ai",
     title: "Webinar on Agentic AI",
     date: "Jun 2026",
-    image: "events/GreenPromt.jpg",
-    description: "To introduce participants to Agentic AI and provide insights into intelligent systems capable of reasoning, planning, decision-making, and performing tasks autonomously..
-"
-  },*/
+    image: "events/Webinar on Agentic AI/Picture.jpg",
+    description: "An expert webinar introducing intelligent autonomous systems, goal decomposition, decision-making, and multi-agent workflows, presented by Eldhose Abraham (TUM Asia, Singapore)."
+  },
   {
     id: "green_prompt",
     title: "GREENPROMPT – AI Prompt Challenge ",
