@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { initMobileNavbar } from './main.js';
 
 const GALLERY_IMAGES = [
+  { src: './gallery/pursuit.jpg', title: 'THE PURSUIT - An IEEE Day Hunt' },
+  { src: './gallery/photobooth.jpg', title: 'A Photobooth challenge' },
+  { src: './gallery/ieee_day.jpg', title: 'IEEE Day group photo' },
   { src: './gallery/1.jpg', title: 'IEEE SB Grand Inauguration & Assembly' },
   { src: './gallery/2.jpg', title: 'Annual Technical Symposium & Keynote' },
   { src: './gallery/3.jpg', title: 'Robotics & Hardware Hackathon' },
